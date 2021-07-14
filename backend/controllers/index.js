@@ -1,27 +1,97 @@
-//importing files from json-data folder
 const agents = require('../../json-data/agents.json')
 const logs = require('../../json-data/logs.json')
-const resol = require('../../json-data/resolution.json')
+const resolutions = require('../../json-data/resolution.json')
 
-//combining all data to show on dashboard
-const combinedLogs = logs.map((log) => ({
-  ...resol.find((resol) => resol.identifier === log.identifier),
+// function to combine logs and resolutions and agents
+const combinedData = logs.map((log) => ({
+  ...resolutions.find((resolution) => resolution.identifier === log.identifier),
   ...agents.find((agent) => agent.identifier === log.agentIdentifier),
   ...log
 }))
 
-// function for getting all the combined data
+// function for getting combined data on get request from routes/index.js
 async function getCombinedData(req, res) {
   try {
     return res.json({
       status: 'success',
       message: 'Dashboard data',
-      data: combinedLogs
+      data: combinedData
     })
   } catch (err) {
     return res.json({ status: 'error', message: err })
   }
 }
 
-//exporting modules
-module.exports = { getCombinedData }
+// function for getting single agent data on get request from routes/index.js
+async function getSingleAgent(req, res) {
+  try {
+    const { id } = req.params
+    if (!id) {
+      return res.json({
+        status: 'error',
+        message: 'Enter correct id'
+      })
+    }
+
+    if (agents.find((agent) => agent.identifier === id) === undefined) {
+      return res.json({
+        status: 'error',
+        message: 'Agent not found'
+      })
+    }
+
+    return res.json({
+      status: 'success',
+      message: `Data for Agent - ${id}`,
+      agent: agents.find((agent) => agent.identifier === id),
+      logs: combinedData.filter(
+        (log) => log.agentIdentifier === id
+      )
+    })
+  } catch (err) {
+    return res.json({ status: 'error', message: err })
+  }
+}
+
+// function for getting calls data on get request from routes/index.js
+async function getCallsData(req, res) {
+  try {
+    const { number } = req.params
+    if (!number) {
+      return res.json({
+        status: 'error',
+        message: 'Enter correct number'
+      })
+    }
+
+    if (logs.find((log) => log.number === number) === undefined) {
+      return res.json({
+        status: 'error',
+        message: 'Number not found'
+      })
+    }
+
+    return res.json({
+      status: 'success',
+      message: `Data for Number - ${number}`,
+      logs: combinedData.filter((log) => log.number === number)
+    })
+  } catch (err) {
+    return res.json({ status: 'error', message: err })
+  }
+}
+
+// function for getting all agents on get request from routes/index.js
+async function getAllAgents(req, res) {
+  try {
+    return res.json({
+      status: 'success',
+      message: 'Data for all Agents',
+      agents
+    })
+  } catch (err) {
+    return res.json({ status: 'error', message: err })
+  }
+}
+
+module.exports = { getCombinedData, getSingleAgent, getCallsData, getAllAgents }
