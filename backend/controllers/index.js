@@ -14,7 +14,7 @@ async function getCombinedData(req, res) {
   try {
     return res.json({
       status: 'success',
-      message: 'Dashboard data',
+      message: 'Combined data',
       data: combinedData
     })
   } catch (err) {
@@ -81,17 +81,4 @@ async function getCallsData(req, res) {
   }
 }
 
-// function for getting all agents on get request from routes/index.js
-async function getAllAgents(req, res) {
-  try {
-    return res.json({
-      status: 'success',
-      message: 'Data for all Agents',
-      agents
-    })
-  } catch (err) {
-    return res.json({ status: 'error', message: err })
-  }
-}
-
-module.exports = { getCombinedData, getSingleAgent, getCallsData, getAllAgents }
+module.exports = { getCombinedData, getSingleAgent, getCallsData }
