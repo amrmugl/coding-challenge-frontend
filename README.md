@@ -28,7 +28,7 @@ run `npm install` in root project directory because i've installed another packa
 
 now from root directory run `npm start`
 
-It will run frontend on `http://localhost:3000/` and backend on `http://localhost:3000/`
+It will run frontend on `http://localhost:3000/` and backend on `http://localhost:8080/`
 
 ## Challenge complete :)
 
