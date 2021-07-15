@@ -1,16 +1,16 @@
 {
-  "name": "coding-challenge-backend",
-  "version": "1.0.0",
-  "description": "Coding challenge backend in node.js using express.js for legal one.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "Ammar Bin Abdul Aziz",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+	"name": "coding-challenge-backend",
+	"version": "1.0.0",
+	"description": "Coding challenge backend in node.js using express.js for legal one.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"author": "Ammar Bin Abdul Aziz",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1"
+	}
 }

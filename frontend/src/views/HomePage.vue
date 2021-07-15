@@ -2,7 +2,7 @@
 	<div>
 		<Header />
 		<Chart :chartData="chartData" />
-		<Table :allData="allData" />
+		<Table :allData="allData" heading="Data With Details" />
 	</div>
 </template>
 
