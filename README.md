@@ -4,31 +4,37 @@
 
 ### --- STEP 1
 
-Download the repo zip file.
+Download Repisitory.
 
 ### --- STEP 2
 
-Install backend packages by running `cd backend` in you terminal.
+Run
 
-After that run `npm install` to install all package.json dependencies.
+```
+npm run install
+```
+
+in terminal to install all the dependencies for both forntend and backend.
 
 ### --- STEP 3
 
-Move back to the root project directory running `cd ..` in your terminal
+Run
 
-Now run `cd frontend` in your terminal to install all package.json dependencies.
+```
+npm run server
+```
+
+in terminal to run server on `http://localhost:8080/`
 
 ### --- STEP 4
 
-Move back to the root project directory running `cd ..` in your terminal
+In new terminal window run
 
-run `npm install` in root project directory because i've installed another package which runs both frontend and backend in parallel.
+```
+npm run client
+```
 
-### --- STEP 5
-
-now from root directory run `npm start`
-
-It will run frontend on `http://localhost:3000/` and backend on `http://localhost:8080/`
+to run frontend client on `http://localhost:3000/`
 
 ## Challenge complete :)
 

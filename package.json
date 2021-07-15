@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"server": "cd backend && npm start",
-		"client": "cd frontend && npm run dev",
-		"start": "concurrently \"npm run server\" \"npm run client\""
+		"install": "cd backend && npm install && cd .. && cd frontend && npm install",
+		"server": "cd backend && node index.js",
+		"client": "cd frontend && npm run dev"
 	},
 	"repository": {
 		"type": "git",
@@ -24,7 +24,5 @@
 		"url": "https://github.com/Legal-One/coding-challenge-frontend/issues"
 	},
 	"homepage": "https://github.com/Legal-One/coding-challenge-frontend#readme",
-	"dependencies": {
-		"concurrently": "^6.2.0"
-	}
+	"dependencies": {}
 }
